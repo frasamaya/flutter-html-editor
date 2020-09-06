@@ -139,6 +139,7 @@ class HtmlEditorState extends State<HtmlEditor> {
                 if (widget.value != null) {
                   setText(widget.value);
                 }
+                removeInsert()
               },
             ),
           ),
@@ -234,7 +235,7 @@ class HtmlEditorState extends State<HtmlEditor> {
 
   setFullContainer() {
     _controller.evaluateJavascript(
-        '\$("#summernote").summernote({toolbar:[["style",["style"]],["font",["bold","italic","underline","strikethrough","superscript","subscript","clear"]],["fontname",["fontname"]],["fontsize",["fontsize"]],["color",["color"]],["para",["ol","ul","paragraph","height"]],["table",["table"]],["insert",["link"]],["view",["undo","redo","fullscreen","codeview","help"]]]});');
+        '\$("#summernote").summernote("fullscreen.toggle");');
   }
 
   setFocus() {
@@ -247,6 +248,11 @@ class HtmlEditorState extends State<HtmlEditor> {
 
   setHint(String text) {
     String hint = '\$(".note-placeholder").html("$text");';
+    _controller.evaluateJavascript(hint);
+  }
+
+  removeInsert() {
+    String hint = '\$(".note-btn-group.btn-group.note-insert").hide();';
     _controller.evaluateJavascript(hint);
   }
 
