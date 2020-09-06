@@ -234,7 +234,17 @@ class HtmlEditorState extends State<HtmlEditor> {
 
   setFullContainer() {
     _controller.evaluateJavascript(
-        '\$("#summernote").summernote("fullscreen.toggle");');
+        '\$("#summernote").summernote({toolbar: [
+            [ 'style', [ 'style' ] ],
+            [ 'font', [ 'bold', 'italic', 'underline', 'strikethrough', 'superscript', 'subscript', 'clear'] ],
+            [ 'fontname', [ 'fontname' ] ],
+            [ 'fontsize', [ 'fontsize' ] ],
+            [ 'color', [ 'color' ] ],
+            [ 'para', [ 'ol', 'ul', 'paragraph', 'height' ] ],
+            [ 'table', [ 'table' ] ],
+            [ 'insert', [ 'link'] ],
+            [ 'view', [ 'undo', 'redo', 'fullscreen', 'codeview', 'help' ] ]
+        ]});');
   }
 
   setFocus() {
