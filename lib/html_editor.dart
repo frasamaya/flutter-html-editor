@@ -139,7 +139,7 @@ class HtmlEditorState extends State<HtmlEditor> {
                 if (widget.value != null) {
                   setText(widget.value);
                 }
-                removeInsert()
+                removeInsert();
               },
             ),
           ),
