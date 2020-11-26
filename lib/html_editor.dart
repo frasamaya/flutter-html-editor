@@ -155,11 +155,6 @@ class HtmlEditorState extends State<HtmlEditor> {
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
                     children: <Widget>[
-                      widgetIcon(Icons.image, "Image", onKlik: () {
-                        widget.useBottomSheet
-                            ? bottomSheetPickImage(context)
-                            : dialogPickImage(context);
-                      }),
                       widgetIcon(Icons.content_copy, "Copy", onKlik: () async {
                         String data = await getText();
                         Clipboard.setData(new ClipboardData(text: data));
